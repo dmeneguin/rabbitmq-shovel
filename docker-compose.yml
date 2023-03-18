@@ -6,7 +6,7 @@ services:
       - "5672:5672"
       - "15672:15672"
     volumes:
-      - ./rabbitmq-conf:/etc/rabbitmq
+      - ./rabbitmq-conf-shovel:/etc/rabbitmq
       - ./shovel_create.sh:/shovel_create.sh
     networks:
       - rabbit-shovel-net
@@ -14,10 +14,10 @@ services:
   rabbitmq_downstream:
     image: rabbitmq:3.9.16-management
     ports:
-      - "5673:5672"
-      - "15673:15672"
+      - "5673:5673"
+      - "15673:15673"
     volumes:
-      - ./rabbitmq-conf:/etc/rabbitmq
+      - ./rabbitmq-conf-downstream:/etc/rabbitmq
     networks:
       - rabbit-shovel-net     
 
